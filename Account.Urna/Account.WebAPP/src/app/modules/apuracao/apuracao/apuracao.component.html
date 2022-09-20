@@ -1,0 +1,9 @@
+<ejs-toolbar>
+  <e-items>
+    <e-item text='Atualizar' align='Left' (click)="refresh($event)"></e-item>
+  </e-items>
+</ejs-toolbar>
+<div class="control-section">
+  <ejs-dashboardlayout id='defaultLayout' #defaultLayout [columns]='6' [cellSpacing]='cellSpacing' [panels]='panels'>
+  </ejs-dashboardlayout>
+</div>

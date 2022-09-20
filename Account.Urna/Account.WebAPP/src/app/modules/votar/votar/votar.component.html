@@ -1,0 +1,81 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col col-md-8">
+      <div class="row">
+        <div class="col col-md-12 text-center">
+          Nome Candidato: {{ candidato.nomeCompleto }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-12 text-center">
+          Nome Vice: {{ candidato.nomeVice }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-6 text-end">
+           <ejs-textbox class="legendas" value="{{value1}}" readonly="true" width="50px"></ejs-textbox>
+        </div>
+        <div class="col col-md-6 text-start">
+          <ejs-textbox  class="legendas" value="{{value2}}" readonly="true" width="50px"></ejs-textbox>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">1</button>
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">2</button>
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">3</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">4</button>
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">5</button>
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">6</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">7</button>
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">8</button>
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">9</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-4">
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button (click)="click($event)">0</button>
+        </div>
+        <div class="col col-md-4">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-4 text-center">
+          <button ejs-button cssClass="e-warning" (click)="clickCommand($event)">CORRIGE</button>
+        </div>
+        <div class="col col-md-4 text-center" >
+          <button ejs-button cssClass="e-outline" (click)="clickCommand($event)">BRANCO</button>
+        </div>
+        <div class="col col-md-4 text-center">
+          <button ejs-button cssClass="e-success" (click)="clickCommand($event)">CONFIRMA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
