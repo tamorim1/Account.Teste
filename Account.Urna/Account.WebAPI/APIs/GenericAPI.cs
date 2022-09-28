@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Account.WebAPI.APIs
 {
-    public class GenericAPI<TEntity, TRepository, TService> : IGenericAPI<TEntity, TRepository, TService>
+    public abstract class GenericAPI<TEntity, TRepository, TService> : IGenericAPI<TEntity, TRepository, TService>
         where TEntity : EntityBase
         where TRepository : IGenericRepository<TEntity>
         where TService : IGenericService<TEntity, TRepository>
     {
-        public async Task<IResult> DeleteAsync([FromServices] TService service, [FromQuery] int id, CancellationToken cancellationToken) 
+        public virtual async Task<IResult> DeleteAsync([FromServices] TService service, [FromQuery] int id, CancellationToken cancellationToken) 
         {
             return await HandleResultAsync(async () =>
             {
@@ -19,7 +19,7 @@ namespace Account.WebAPI.APIs
             });
         }
 
-        public async Task<IResult> GetAllAsync<TDTO>([FromServices] TService service, CancellationToken cancellationToken) where TDTO : class
+        public virtual async Task<IResult> GetAllAsync<TDTO>([FromServices] TService service, CancellationToken cancellationToken) where TDTO : class
         {
             return await HandleResultAsync(async () =>
             {
@@ -28,7 +28,7 @@ namespace Account.WebAPI.APIs
             });
         }
 
-        public async Task<IResult> GetByIdAsync<TDTO>([FromServices] TService service, [FromQuery] int id, CancellationToken cancellationToken) where TDTO : class
+        public virtual async Task<IResult> GetByIdAsync<TDTO>([FromServices] TService service, [FromQuery] int id, CancellationToken cancellationToken) where TDTO : class
         {
             return await HandleResultAsync(async () =>
             {
@@ -37,7 +37,7 @@ namespace Account.WebAPI.APIs
             });
         }
 
-        public async Task<IResult> PostAsync<TDTO>([FromServices] TService service, [FromBody] TDTO dto, CancellationToken cancellationToken) where TDTO : class
+        public virtual async Task<IResult> PostAsync<TDTO>([FromServices] TService service, [FromBody] TDTO dto, CancellationToken cancellationToken) where TDTO : class
         {
             return await HandleResultAsync(async () =>
             {
@@ -47,7 +47,7 @@ namespace Account.WebAPI.APIs
             });
         }
 
-        public async Task<IResult> PutAsync<TDTO>([FromServices] TService service, [FromBody] TDTO dto, CancellationToken cancellationToken) where TDTO : class
+        public virtual async Task<IResult> PutAsync<TDTO>([FromServices] TService service, [FromBody] TDTO dto, CancellationToken cancellationToken) where TDTO : class
         {
             return await HandleResultAsync(async () =>
             {

@@ -17,7 +17,7 @@ namespace Account.WebAPI.APIs.Voto
         public VotoAPI()
         {
         }
-        public async Task<IResult> PostVotoAsync([FromServices] TService service, [FromBody] int? idCandidato, CancellationToken cancellationToken)
+        public virtual async Task<IResult> PostVotoAsync([FromServices] TService service, [FromBody] int? idCandidato, CancellationToken cancellationToken)
         {
             return await HandleResultAsync(async () =>
             {
@@ -25,7 +25,7 @@ namespace Account.WebAPI.APIs.Voto
             });
         }
 
-        public async Task<IResult> GetVotosAsync([FromServices] TService service,CancellationToken cancellationToken)
+        public virtual async Task<IResult> GetVotosAsync([FromServices] TService service,CancellationToken cancellationToken)
         {
             return await HandleResultAsync(async () =>
             {
@@ -34,13 +34,18 @@ namespace Account.WebAPI.APIs.Voto
         }
     }
 
-
+    public class VotoAPI : VotoAPI<VotoEntity, IVotoRepository, IVotoService>
+    {
+        public VotoAPI()
+        {
+        }
+    }
 
     public static class VotoAPIConfiguration
     {
         public static void ConfigureVotoAPI(this WebApplication webApplication)
         {
-            var api = new VotoAPI<VotoEntity,IVotoRepository,IVotoService>();
+            var api = new VotoAPI();
             webApplication.MapGet("/votes", api.GetVotosAsync);//dashbord
             webApplication.MapPost("/vote", api.PostVotoAsync);//votar
         }

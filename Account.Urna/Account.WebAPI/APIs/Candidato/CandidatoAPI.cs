@@ -54,11 +54,18 @@ namespace Account.WebAPI.APIs.Candidato
         }
     }
 
+    public class CandidatoAPI : CandidatoAPI<CandidatoEntity, ICandidatoRepository, ICandidatoService>
+    {
+        public CandidatoAPI()
+        {
+        }
+    }
+
     public static class CandidatoAPIConfiguration
     {
         public static void ConfigureCandidatoAPI(this WebApplication webApplication)
         {
-            var api = new CandidatoAPI<CandidatoEntity, ICandidatoRepository, ICandidatoService>();
+            var api = new CandidatoAPI();
             webApplication.MapGet("/candidate", api.GetCandidatosAsync<SelectCandidatoByLegendaDTO[]>);
             webApplication.MapGet("/candidatebylegenda", api.GetCandidatoByLegendaAsync<SelectCandidatoByLegendaDTO>);//candidato para votar
             webApplication.MapPost("/candidate", api.PostCandidatoAsync<InsertCandidatoDTO>);//inserir candidato

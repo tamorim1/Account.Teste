@@ -30,7 +30,7 @@ namespace Account.Services.Services.Voto
                 DataVoto = DateTime.Now
             };
 
-            await _repository.InsertAsync(entity);
+            await _repository.InsertAsync(entity,cancellationToken);
         }
 
         public async Task<ICollection<SelectVotoDTO>> SelectVotosAsync(CancellationToken cancellationToken)
